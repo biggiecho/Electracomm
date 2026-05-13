@@ -1,0 +1,1768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Reserve your next iPhone with ELECTRACOMM. Compare models, choose storage, see live pricing in ZMW, and submit a preorder request in minutes.">
+    <meta name="theme-color" content="#0f172a">
+    <title>ELECTRACOMM | iPhone Preorders</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f4efe6;
+            --surface: rgba(255, 255, 255, 0.78);
+            --surface-strong: #fffdf9;
+            --text: #122033;
+            --muted: #556274;
+            --accent: #d96f32;
+            --accent-dark: #b14f18;
+            --accent-soft: #fff1e7;
+            --line: rgba(18, 32, 51, 0.1);
+            --shadow: 0 24px 60px rgba(18, 32, 51, 0.12);
+            --radius-xl: 28px;
+            --radius-lg: 20px;
+            --radius-md: 14px;
+            --success: #0f8a5f;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Manrope", sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at top left, rgba(217, 111, 50, 0.18), transparent 26%),
+                radial-gradient(circle at top right, rgba(15, 138, 95, 0.14), transparent 20%),
+                linear-gradient(180deg, #f8f3eb 0%, #f4efe6 48%, #efe5d9 100%);
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .shell {
+            width: min(1180px, calc(100% - 32px));
+            margin: 0 auto;
+        }
+
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            backdrop-filter: blur(16px);
+            background: rgba(248, 243, 235, 0.8);
+            border-bottom: 1px solid rgba(18, 32, 51, 0.06);
+        }
+
+        .topbar-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 14px 0;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+        }
+
+        .brand-mark {
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            display: grid;
+            place-items: center;
+            color: white;
+            background: linear-gradient(135deg, #122033, #d96f32);
+            font-family: "Syne", sans-serif;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+        }
+
+        .brand-copy strong,
+        .hero-copy h1,
+        .section-title,
+        .panel h3,
+        .order-card h3 {
+            font-family: "Syne", sans-serif;
+        }
+
+        .brand-copy strong {
+            display: block;
+            font-size: 1rem;
+        }
+
+        .brand-copy span {
+            display: block;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .nav {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            padding: 0 20px;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+            cursor: pointer;
+        }
+
+        .button:hover,
+        .button:focus-visible {
+            transform: translateY(-1px);
+        }
+
+        .button-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .button-primary:hover,
+        .button-primary:focus-visible {
+            background: var(--accent-dark);
+        }
+
+        .button-secondary {
+            border-color: rgba(18, 32, 51, 0.14);
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .hero {
+            padding: 48px 0 36px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 28px;
+            align-items: stretch;
+        }
+
+        .hero-copy,
+        .hero-card,
+        .panel,
+        .order-card,
+        .feature-card,
+        .faq-item,
+        .notice,
+        .toast {
+            border: 1px solid var(--line);
+            box-shadow: var(--shadow);
+        }
+
+        .hero-copy,
+        .hero-card,
+        .panel,
+        .order-card,
+        .faq-item,
+        .notice {
+            background: var(--surface);
+            backdrop-filter: blur(18px);
+        }
+
+        .hero-copy {
+            padding: 40px;
+            border-radius: var(--radius-xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-copy::after {
+            content: "";
+            position: absolute;
+            inset: auto -80px -80px auto;
+            width: 200px;
+            height: 200px;
+            border-radius: 999px;
+            background: radial-gradient(circle, rgba(217, 111, 50, 0.28), transparent 70%);
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: var(--accent-soft);
+            color: var(--accent-dark);
+            font-size: 0.88rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .hero-copy h1 {
+            font-size: clamp(2.6rem, 6vw, 5rem);
+            line-height: 0.96;
+            margin: 0 0 16px;
+            max-width: 10ch;
+        }
+
+        .hero-copy p {
+            font-size: 1.05rem;
+            color: var(--muted);
+            margin: 0 0 20px;
+            max-width: 58ch;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin: 26px 0 28px;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .stat {
+            padding: 16px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.65);
+            border: 1px solid rgba(18, 32, 51, 0.08);
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 1.1rem;
+        }
+
+        .stat span {
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .hero-card {
+            border-radius: var(--radius-xl);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100%;
+        }
+
+        .device-frame {
+            border-radius: 28px;
+            padding: 24px;
+            background:
+                linear-gradient(160deg, rgba(18, 32, 51, 0.96), rgba(36, 53, 79, 0.94)),
+                #122033;
+        }
+
+        .device-frame img {
+            width: 100%;
+            border-radius: 22px;
+            object-fit: cover;
+            min-height: 380px;
+        }
+
+        .hero-card-footer {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            align-items: center;
+            margin-top: 18px;
+        }
+
+        .hero-card-footer p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .countdown {
+            font-weight: 800;
+            color: var(--accent-dark);
+        }
+
+        main section {
+            padding: 28px 0;
+        }
+
+        .section-heading {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            margin: 0;
+            font-size: clamp(1.8rem, 4vw, 3rem);
+        }
+
+        .section-heading p {
+            max-width: 56ch;
+            color: var(--muted);
+            margin: 0;
+        }
+
+        .panel-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 24px;
+            align-items: start;
+        }
+
+        .panel,
+        .order-card {
+            border-radius: var(--radius-xl);
+            padding: 24px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .feature-card {
+            background: var(--surface-strong);
+            border-radius: 22px;
+            padding: 22px;
+        }
+
+        .feature-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 16px;
+            display: grid;
+            place-items: center;
+            background: var(--accent-soft);
+            color: var(--accent-dark);
+            margin-bottom: 16px;
+            font-size: 1.3rem;
+            font-weight: 800;
+        }
+
+        .feature-card h3,
+        .panel h3,
+        .order-card h3 {
+            margin: 0 0 10px;
+            font-size: 1.28rem;
+        }
+
+        .feature-card p,
+        .panel p,
+        .order-card p,
+        .faq-item p,
+        .notice p {
+            color: var(--muted);
+            margin: 0;
+        }
+
+        .grid-two {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        label {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .field {
+            margin-bottom: 16px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            border: 1px solid rgba(18, 32, 51, 0.14);
+            border-radius: 14px;
+            min-height: 50px;
+            padding: 12px 14px;
+            font: inherit;
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.92);
+        }
+
+        textarea {
+            min-height: 108px;
+            resize: vertical;
+        }
+
+        input:focus-visible,
+        select:focus-visible,
+        textarea:focus-visible,
+        button:focus-visible,
+        a:focus-visible,
+        summary:focus-visible {
+            outline: 3px solid rgba(217, 111, 50, 0.25);
+            outline-offset: 2px;
+        }
+
+        .inline-choice {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .pill {
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: var(--accent-soft);
+            color: var(--accent-dark);
+            font-size: 0.92rem;
+            font-weight: 700;
+        }
+
+        .money-note {
+            font-size: 0.92rem;
+            color: var(--muted);
+            margin-top: -6px;
+            margin-bottom: 16px;
+        }
+
+        .summary {
+            display: grid;
+            gap: 14px;
+            margin: 18px 0 20px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            align-items: center;
+            color: var(--muted);
+        }
+
+        .summary-row strong {
+            color: var(--text);
+            font-size: 1.05rem;
+        }
+
+        .summary-total {
+            padding-top: 14px;
+            border-top: 1px solid rgba(18, 32, 51, 0.12);
+        }
+
+        .helper-list,
+        .perk-list {
+            padding: 0;
+            margin: 18px 0 0;
+            list-style: none;
+            display: grid;
+            gap: 12px;
+        }
+
+        .helper-list li,
+        .perk-list li {
+            display: flex;
+            gap: 12px;
+            align-items: start;
+            color: var(--muted);
+        }
+
+        .helper-list strong,
+        .perk-list strong {
+            color: var(--text);
+        }
+
+        .helper-list span:first-child,
+        .perk-list span:first-child {
+            color: var(--success);
+            font-weight: 900;
+            line-height: 1.2;
+        }
+
+        .notice {
+            border-radius: 20px;
+            padding: 18px 20px;
+            margin-top: 18px;
+        }
+
+        .faq-list {
+            display: grid;
+            gap: 14px;
+        }
+
+        .faq-item {
+            border-radius: 20px;
+            padding: 18px 22px;
+        }
+
+        .faq-item summary {
+            cursor: pointer;
+            font-weight: 800;
+            list-style: none;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item p {
+            padding-top: 12px;
+        }
+
+        .footer {
+            padding: 32px 0 48px;
+            color: var(--muted);
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding-top: 20px;
+            border-top: 1px solid rgba(18, 32, 51, 0.1);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .toast {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            max-width: 340px;
+            border-radius: 18px;
+            background: #122033;
+            color: white;
+            padding: 16px 18px;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(12px);
+            transition: opacity 0.25s ease, transform 0.25s ease;
+            z-index: 40;
+        }
+
+        .toast.show {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        .fade-in {
+            animation: fadeUp 0.7s ease both;
+        }
+
+        .fade-in.delay-1 { animation-delay: 0.08s; }
+        .fade-in.delay-2 { animation-delay: 0.16s; }
+        .fade-in.delay-3 { animation-delay: 0.24s; }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 980px) {
+            .hero-grid,
+            .panel-grid,
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-copy {
+                padding: 28px;
+            }
+
+            .hero-stats,
+            .grid-two {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .topbar-inner {
+                align-items: start;
+                flex-direction: column;
+            }
+
+            .nav {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .hero {
+                padding-top: 26px;
+            }
+
+            .hero-copy h1 {
+                max-width: none;
+            }
+
+            .section-heading {
+                align-items: start;
+                flex-direction: column;
+            }
+
+            .panel,
+            .order-card,
+            .hero-card {
+                padding: 20px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="topbar">
+        <div class="shell topbar-inner">
+            <a class="brand" href="#top">
+                <span class="brand-mark">EC</span>
+                <span class="brand-copy">
+                    <strong>ELECTRACOMM</strong>
+                    <span>Smarter iPhone preorders in Zambia</span>
+                </span>
+            </a>
+            <nav class="nav" aria-label="Primary">
+                <a href="#why">Why buy here</a>
+                <a href="#preorder">Build your order</a>
+                <a href="#faq">FAQ</a>
+                <a class="button button-primary" href="#preorder">Buy now</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="top">
+        <div class="shell hero-grid">
+            <div class="hero-copy fade-in">
+                <div class="eyebrow">Priority reservations open now</div>
+                <h1>Reserve your next iPhone without the chaos.</h1>
+                <p>ELECTRACOMM turns scattered DMs and manual price checks into one clear preorder flow. Customers can choose a model, see live ZMW pricing, pick a payment path, and submit a complete order request in one place.</p>
+                <div class="hero-actions">
+                    <a class="button button-primary" href="#preorder">Start preorder</a>
+                    <a class="button button-secondary" href="#notify">Join waitlist</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <strong id="hero-price-from">From ZMW 20,500</strong>
+                        <span>Current starting price</span>
+                    </div>
+                    <div class="stat">
+                        <strong>3-step checkout</strong>
+                        <span>Faster for first-time buyers</span>
+                    </div>
+                    <div class="stat">
+                        <strong id="hero-countdown">Closing soon</strong>
+                        <span>Priority preorder window</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-card fade-in delay-1">
+                <div class="device-frame">
+                    <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=1200&q=80" alt="Premium smartphone on a warm gradient background">
+                </div>
+                <div class="hero-card-footer">
+                    <div>
+                        <strong>iPhone 16 range</strong>
+                        <p>Titanium finishes, flexible storage options, delivery updates included.</p>
+                    </div>
+                    <div class="countdown" id="countdown">Window closes in 00d 00h 00m</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <section id="why">
+            <div class="shell">
+                <div class="section-heading fade-in">
+                    <div>
+                        <h2 class="section-title">Built to feel easier for customers</h2>
+                    </div>
+                    <p>Instead of asking buyers to message back and forth for prices, colors, and payment details, this page guides them through a cleaner path and captures everything you need upfront.</p>
+                </div>
+                <div class="feature-grid">
+                    <article class="feature-card fade-in delay-1">
+                        <div class="feature-icon">01</div>
+                        <h3>Live pricing</h3>
+                        <p>Only valid storage options appear for each model, so people do not select combinations you cannot fulfill.</p>
+                    </article>
+                    <article class="feature-card fade-in delay-2">
+                        <div class="feature-icon">02</div>
+                        <h3>Order summary</h3>
+                        <p>Buyers can see model, storage, deposit, and estimated delivery before submitting.</p>
+                    </article>
+                    <article class="feature-card fade-in delay-3">
+                        <div class="feature-icon">03</div>
+                        <h3>Mobile money ready</h3>
+                        <p>The flow already includes Airtel Money and can be expanded for MTN MoMo, cards, and bank transfer.</p>
+                    </article>
+                    <article class="feature-card fade-in">
+                        <div class="feature-icon">04</div>
+                        <h3>Follow-up friendly</h3>
+                        <p>Submitted orders are stored locally for demo use and can be sent to Formspree or a real backend next.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="preorder">
+            <div class="shell">
+                <div class="section-heading fade-in">
+                    <div>
+                        <h2 class="section-title">Build the order</h2>
+                    </div>
+                    <p>This version is functional as a frontend: it validates the form, calculates totals, stores orders locally, and gives customers a clear confirmation state instead of a blank form submit.</p>
+                </div>
+
+                <div class="panel-grid">
+                    <section class="panel fade-in delay-1" aria-labelledby="preorder-title">
+                        <h3 id="preorder-title">Customer details</h3>
+                        <p>Fill in the essentials once. We’ll generate the order summary automatically.</p>
+
+                        <form id="preorder-form" novalidate>
+                            <div class="grid-two">
+                                <div class="field">
+                                    <label for="customer-name">Full name</label>
+                                    <input id="customer-name" name="customer-name" type="text" placeholder="Enter full name" required>
+                                </div>
+                                <div class="field">
+                                    <label for="phone-number">Phone number</label>
+                                    <input id="phone-number" name="phone-number" type="tel" inputmode="tel" placeholder="+260..." required>
+                                </div>
+                            </div>
+
+                            <div class="grid-two">
+                                <div class="field">
+                                    <label for="email-address">Email address</label>
+                                    <input id="email-address" name="email-address" type="email" placeholder="you@example.com" required>
+                                </div>
+                                <div class="field">
+                                    <label for="city">City / pickup location</label>
+                                    <select id="city" name="city" required>
+                                        <option value="">Select city / pickup location</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="grid-two">
+                                <div class="field">
+                                    <label for="iphone-model">Model</label>
+                                    <select id="iphone-model" name="iphone-model" required></select>
+                                </div>
+                                <div class="field">
+                                    <label for="storage">Storage</label>
+                                    <select id="storage" name="storage" required></select>
+                                </div>
+                            </div>
+
+                            <div class="grid-two">
+                                <div class="field">
+                                    <label for="color">Finish</label>
+                                    <select id="color" name="color" required>
+                                        <option value="Black Titanium">Black Titanium</option>
+                                        <option value="White Titanium">White Titanium</option>
+                                        <option value="Natural Titanium">Natural Titanium</option>
+                                        <option value="Desert Titanium">Desert Titanium</option>
+                                        <option value="Blue">Blue</option>
+                                        <option value="Pink">Pink</option>
+                                        <option value="Ultramarine">Ultramarine</option>
+                                    </select>
+                                </div>
+                                <div class="field">
+                                    <label for="payment-method">Payment method</label>
+                                    <select id="payment-method" name="payment-method" required>
+                                        <option value="Airtel Money">Airtel Money</option>
+                                        <option value="MTN MoMo">MTN MoMo</option>
+                                        <option value="Visa / Mastercard">Visa / Mastercard</option>
+                                        <option value="Bank Transfer">Bank Transfer</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="grid-two">
+                                <div class="field">
+                                    <label for="delivery-option">Delivery option</label>
+                                    <select id="delivery-option" name="delivery-option" required>
+                                        <option value="Store pickup">Store pickup</option>
+                                        <option value="Local delivery">Local delivery</option>
+                                        <option value="Bus courier">Bus courier</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label for="notes">Notes</label>
+                                <textarea id="notes" name="notes" placeholder="Optional notes: preferred pickup day, color backup choice, trade-in question, or anything else."></textarea>
+                            </div>
+
+                        <div class="money-note">This version is ready to connect to Supabase so you can manage live catalog changes and capture real submissions from a dashboard.</div>
+
+                            <button class="button button-primary" type="submit">Submit preorder request</button>
+                        </form>
+                    </section>
+
+                    <aside class="order-card fade-in delay-2" aria-labelledby="summary-title">
+                        <h3 id="summary-title">Order summary</h3>
+                        <p>Customers see exactly what they are paying now, which reduces confusion and abandoned checkouts.</p>
+
+                        <div class="summary">
+                            <div class="summary-row">
+                                <span>Model</span>
+                                <strong id="summary-model">iPhone 16</strong>
+                            </div>
+                            <div class="summary-row">
+                                <span>Storage</span>
+                                <strong id="summary-storage">128GB</strong>
+                            </div>
+                            <div class="summary-row">
+                                <span>Delivery</span>
+                                <strong id="summary-delivery">Store pickup</strong>
+                            </div>
+                            <div class="summary-row">
+                                <span>Payment</span>
+                                <strong id="summary-payment">Airtel Money</strong>
+                            </div>
+                            <div class="summary-row">
+                                <span>Estimated total</span>
+                                <strong id="summary-price">ZMW 20,500</strong>
+                            </div>
+                            <div class="summary-row summary-total">
+                                <span>Estimated delivery</span>
+                                <strong id="summary-delivery-date">Within 3 to 7 days</strong>
+                            </div>
+                        </div>
+
+                        <div class="inline-choice" aria-label="Preorder perks">
+                            <span class="pill">Case included</span>
+                            <span class="pill">Screen protector</span>
+                            <span class="pill">Priority updates</span>
+                        </div>
+
+                        <ul class="helper-list">
+                            <li><span>&bull;</span><span><strong>Cleaner operations:</strong> invalid storage combinations are automatically removed.</span></li>
+                            <li><span>&bull;</span><span><strong>Better trust:</strong> customers see delivery and payment expectations before submitting.</span></li>
+                            <li><span>&bull;</span><span><strong>Easy next step:</strong> real payment checkout can replace the submit handler later.</span></li>
+                        </ul>
+
+                        <div class="notice" id="latest-order">
+                            <h3>Latest saved order</h3>
+                            <p id="latest-order-text">No order saved on this device yet.</p>
+                        </div>
+
+                        <div class="notice" id="backend-status">
+                            <h3>Backend status</h3>
+                            <p id="backend-status-text">Checking Supabase connection...</p>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="shell panel-grid">
+                <section class="panel fade-in" id="notify">
+                    <h3>Waitlist and price alerts</h3>
+                    <p>Not ready to order yet? Capture warm leads with a simpler form.</p>
+
+                    <form id="notify-form" novalidate>
+                        <div class="grid-two">
+                            <div class="field">
+                                <label for="notify-name">Full name</label>
+                                <input id="notify-name" name="notify-name" type="text" placeholder="Your full name" required>
+                            </div>
+                            <div class="field">
+                                <label for="notify-email">Email address</label>
+                                <input id="notify-email" name="notify-email" type="email" placeholder="you@example.com" required>
+                            </div>
+                        </div>
+                        <div class="grid-two">
+                            <div class="field">
+                                <label for="notify-model">Interested in</label>
+                                <select id="notify-model" name="notify-model" required></select>
+                            </div>
+                            <div class="field">
+                                <label for="notify-channel">Best update channel</label>
+                                <select id="notify-channel" name="notify-channel" required>
+                                    <option value="Email">Email</option>
+                                    <option value="WhatsApp">WhatsApp</option>
+                                    <option value="SMS">SMS</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label>
+                                <input type="checkbox" id="notify-consent" required>
+                                I agree to receive preorder updates and pricing alerts.
+                            </label>
+                        </div>
+                        <button class="button button-primary" type="submit">Join the waitlist</button>
+                    </form>
+                </section>
+
+                <section class="panel fade-in delay-1">
+                    <h3>Preorder perks</h3>
+                    <p>These benefits help the offer feel valuable without making checkout more complicated.</p>
+                    <ul class="perk-list">
+                        <li><span>&#10003;</span><span><strong>Free accessories:</strong> include a screen protector and protective case.</span></li>
+                        <li><span>&#10003;</span><span><strong>Priority communication:</strong> send confirmation and delivery progress automatically.</span></li>
+                        <li><span>&#10003;</span><span><strong>Deposit flexibility:</strong> let serious buyers reserve without paying the full amount on day one.</span></li>
+                        <li><span>&#10003;</span><span><strong>Clear support path:</strong> add a WhatsApp contact and response window near checkout.</span></li>
+                    </ul>
+                </section>
+            </div>
+        </section>
+
+        <section id="faq">
+            <div class="shell">
+                <div class="section-heading fade-in">
+                    <div>
+                        <h2 class="section-title">Frequently asked questions</h2>
+                    </div>
+                    <p>The original FAQ had outdated timing. This version uses evergreen wording so it won’t look expired as quickly.</p>
+                </div>
+
+                <div class="faq-list">
+                    <details class="faq-item fade-in delay-1">
+                        <summary>How does this preorder work?</summary>
+                        <p>Customers choose a model, storage size, finish, payment method, and delivery option. The site calculates their estimated total and reservation amount before submission.</p>
+                    </details>
+                    <details class="faq-item fade-in delay-2">
+                        <summary>Can I take a deposit instead of full payment?</summary>
+                        <p>Yes. This demo supports full payment, a 50% deposit, or a 25% reservation deposit. You can change those rules in the script to match your policy.</p>
+                    </details>
+                    <details class="faq-item fade-in delay-3">
+                        <summary>Where do order requests go right now?</summary>
+                        <p>In this frontend version, preorder requests are stored in the customer’s browser for demo purposes and a success message appears instantly. The next step is connecting the form to a backend or payment processor.</p>
+                    </details>
+                    <details class="faq-item fade-in">
+                        <summary>What should be added before launching publicly?</summary>
+                        <p>Add a real backend, payment checkout, confirmation emails or WhatsApp notifications, legal pages, and stock management so customers only see what is actually available.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="shell footer-inner">
+            <div>
+                <strong>ELECTRACOMM</strong>
+                <p>Modern preorder flow for premium phones, built to reduce friction and increase trust.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#preorder">Preorder</a>
+                <a href="#notify">Waitlist</a>
+                <a href="#faq">FAQ</a>
+                <a href="mailto:sales@electracomm.example">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script>
+        const fallbackProductCatalog = {
+            iphone16: {
+                label: "iPhone 16",
+                imageTag: "A18 chip",
+                deliveryWindow: "Within 3 to 7 days",
+                storage: {
+                    "128GB": 20500,
+                    "256GB": 22600
+                }
+            },
+            iphone16plus: {
+                label: "iPhone 16 Plus",
+                imageTag: "Larger display",
+                deliveryWindow: "Within 3 to 7 days",
+                storage: {
+                    "128GB": 22500,
+                    "256GB": 24000,
+                    "512GB": 39500
+                }
+            },
+            iphone16pro: {
+                label: "iPhone 16 Pro",
+                imageTag: "Titanium finish",
+                deliveryWindow: "Within 3 to 7 days",
+                storage: {
+                    "128GB": 24700,
+                    "256GB": 26500
+                }
+            },
+            iphone16promax: {
+                label: "iPhone 16 Pro Max",
+                imageTag: "Pro camera system",
+                deliveryWindow: "Within 3 to 7 days",
+                storage: {
+                    "256GB": 30600,
+                    "512GB": 33000
+                }
+            },
+            iphone15: {
+                label: "iPhone 15",
+                imageTag: "Value option",
+                deliveryWindow: "Within 3 to 7 days",
+                storage: {
+                    "128GB": 15300,
+                    "256GB": 16800
+                }
+            },
+            iphone15plus: {
+                label: "iPhone 15 Plus",
+                imageTag: "Bigger battery",
+                deliveryWindow: "Within 3 to 7 days",
+                storage: {
+                    "128GB": 16500,
+                    "256GB": 17600
+                }
+            },
+            iphone15pro: {
+                label: "iPhone 15 Pro",
+                imageTag: "Compact pro",
+                deliveryWindow: "Within 3 to 7 days",
+                storage: {
+                    "256GB": 20000,
+                    "512GB": 23300
+                }
+            },
+            iphone15promax: {
+                label: "iPhone 15 Pro Max",
+                imageTag: "Max performance",
+                deliveryWindow: "Within 3 to 7 days",
+                storage: {
+                    "256GB": 22300,
+                    "512GB": 23700
+                }
+            },
+            iphonex: {
+                label: "iPhone X",
+                imageTag: "Classic flagship",
+                deliveryWindow: "Within 3 to 7 days",
+                storage: {
+                    "256GB": 4900
+                }
+            },
+            iphonexr: {
+                label: "iPhone XR",
+                imageTag: "Everyday value",
+                deliveryWindow: "Within 3 to 7 days",
+                storage: {
+                    "128GB": 5700
+                }
+            },
+            iphonexsmax: {
+                label: "iPhone XS Max",
+                imageTag: "Large OLED",
+                deliveryWindow: "Within 3 to 7 days",
+                storage: {
+                    "256GB": 6000
+                }
+            },
+            iphone11: {
+                label: "iPhone 11",
+                imageTag: "Dual-camera favorite",
+                deliveryWindow: "Within 3 to 7 days",
+                storage: {
+                    "128GB": 6900
+                }
+            },
+            iphone11promax: {
+                label: "iPhone 11 Pro Max",
+                imageTag: "Triple-camera upgrade",
+                deliveryWindow: "Within 3 to 7 days",
+                storage: {
+                    "256GB": 9500
+                }
+            },
+            iphone12: {
+                label: "iPhone 12",
+                imageTag: "Ceramic Shield",
+                deliveryWindow: "Within 3 to 7 days",
+                storage: {
+                    "128GB": 7800
+                }
+            },
+            iphone12promax: {
+                label: "iPhone 12 Pro Max",
+                imageTag: "Larger pro camera",
+                deliveryWindow: "Within 3 to 7 days",
+                storage: {
+                    "128GB": 11200,
+                    "256GB": 12000
+                }
+            },
+            iphone13: {
+                label: "iPhone 13",
+                imageTag: "Reliable daily driver",
+                deliveryWindow: "Within 3 to 7 days",
+                storage: {
+                    "128GB": 10000
+                }
+            },
+            iphone13promax: {
+                label: "iPhone 13 Pro Max",
+                imageTag: "120Hz ProMotion",
+                deliveryWindow: "Within 3 to 7 days",
+                storage: {
+                    "128GB": 13200,
+                    "256GB": 15500
+                }
+            },
+            iphone14: {
+                label: "iPhone 14",
+                imageTag: "Balanced upgrade",
+                deliveryWindow: "Within 3 to 7 days",
+                storage: {
+                    "128GB": 13400
+                }
+            },
+            iphone14plus: {
+                label: "iPhone 14 Plus",
+                imageTag: "Big-screen value",
+                deliveryWindow: "Within 3 to 7 days",
+                storage: {
+                    "128GB": 13900
+                }
+            },
+            iphone14pro: {
+                label: "iPhone 14 Pro",
+                imageTag: "Dynamic Island",
+                deliveryWindow: "Within 3 to 7 days",
+                storage: {
+                    "128GB": 15200
+                }
+            },
+            iphone14promax: {
+                label: "iPhone 14 Pro Max",
+                imageTag: "Large pro flagship",
+                deliveryWindow: "Within 3 to 7 days",
+                storage: {
+                    "128GB": 15800,
+                    "256GB": 17500
+                }
+            }
+        };
+
+        const fallbackDeliveryFees = {
+            "Store pickup": 0,
+            "Local delivery": 120,
+            "Bus courier": 180,
+            "Platinum Courier": 220,
+            "ZamPost (Post Office)": 95
+        };
+
+        const zambiaLocations = [
+            "Chadiza",
+            "Chama",
+            "Chasefu",
+            "Chavuma",
+            "Chembe",
+            "Chibombo",
+            "Chiengi",
+            "Chifunabuli",
+            "Chikankata",
+            "Chilanga",
+            "Chililabombwe",
+            "Chilubi",
+            "Chingola",
+            "Chinsali",
+            "Chipangali",
+            "Chipata",
+            "Chipili",
+            "Chirundu",
+            "Chisamba",
+            "Chitambo",
+            "Choma",
+            "Chongwe",
+            "Gwembe",
+            "Ikelenge",
+            "Isoka",
+            "Itezhi-Tezhi",
+            "Kabompo",
+            "Kabwe",
+            "Kafue",
+            "Kalabo",
+            "Kalomo",
+            "Kalulushi",
+            "Kalumbila",
+            "Kanchibiya",
+            "Kaoma",
+            "Kapiri Mposhi",
+            "Kaputa",
+            "Kasama",
+            "Kasempa",
+            "Kasenengwa",
+            "Katete",
+            "Kawambwa",
+            "Kazungula",
+            "Kitwe",
+            "Lavushimanda",
+            "Limulunga",
+            "Livingstone",
+            "Luampa",
+            "Luangwa",
+            "Luano",
+            "Luanshya",
+            "Lufwanyama",
+            "Lukulu",
+            "Lumezi",
+            "Lundazi",
+            "Lunga",
+            "Lunte",
+            "Lupososhi",
+            "Lusaka",
+            "Lusangazi",
+            "Luwingu",
+            "Mafinga",
+            "Makeni",
+            "Mambwe",
+            "Mansa",
+            "Manyinga",
+            "Masaiti",
+            "Mazabuka",
+            "Mbala",
+            "Mbereshi",
+            "Mfuwe",
+            "Milenge",
+            "Mitete",
+            "Mkushi",
+            "Mongu",
+            "Monze",
+            "Mpika",
+            "Mpongwe",
+            "Mporokoso",
+            "Mpulungu",
+            "Mufulira",
+            "Mufumbwe",
+            "Mulobezi",
+            "Mumbwa",
+            "Mungwi",
+            "Mushindamo",
+            "Muyombe",
+            "Mwandi",
+            "Mwansabombwe",
+            "Mwense",
+            "Mwinilunga",
+            "Nakonde",
+            "Nalolo",
+            "Namwala",
+            "Nchelenge",
+            "Ndola",
+            "Ngabwe",
+            "Nkeyema",
+            "Nsama",
+            "Nseluka",
+            "Nyimba",
+            "Pemba",
+            "Petauke",
+            "Rufunsa",
+            "Samfya",
+            "Senanga",
+            "Senga Hill",
+            "Serenje",
+            "Sesheke",
+            "Shangombo",
+            "Shibuyunji",
+            "Shiwa Ng'andu",
+            "Siavonga",
+            "Sikongo",
+            "Sinazongwe",
+            "Sinda",
+            "Sioma",
+            "Solwezi",
+            "Vubwi",
+            "Zambezi",
+            "Zimba"
+        ];
+
+        let productCatalog = JSON.parse(JSON.stringify(fallbackProductCatalog));
+        let deliveryFees = { ...fallbackDeliveryFees };
+        let supabaseClient = null;
+
+        const preorderForm = document.getElementById("preorder-form");
+        const notifyForm = document.getElementById("notify-form");
+        const modelSelect = document.getElementById("iphone-model");
+        const storageSelect = document.getElementById("storage");
+        const cityInput = document.getElementById("city");
+        const deliverySelect = document.getElementById("delivery-option");
+        const paymentSelect = document.getElementById("payment-method");
+        const notifyModelSelect = document.getElementById("notify-model");
+        const toast = document.getElementById("toast");
+        const countdown = document.getElementById("countdown");
+        const heroCountdown = document.getElementById("hero-countdown");
+        const heroPriceFrom = document.getElementById("hero-price-from");
+        const latestOrderText = document.getElementById("latest-order-text");
+        const backendStatusText = document.getElementById("backend-status-text");
+
+        function setBackendStatus(message) {
+            backendStatusText.textContent = message;
+        }
+
+        function getSupabaseConfig() {
+            if (!window.SUPABASE_CONFIG) {
+                return null;
+            }
+
+            const { url, anonKey } = window.SUPABASE_CONFIG;
+            if (!url || !anonKey) {
+                return null;
+            }
+
+            return { url, anonKey };
+        }
+
+        function buildCatalogFromRows(rows) {
+            return rows.reduce((catalog, row) => {
+                if (!catalog[row.slug]) {
+                    catalog[row.slug] = {
+                        label: row.label,
+                        imageTag: row.image_tag,
+                        deliveryWindow: row.delivery_window,
+                        storage: {}
+                    };
+                }
+
+                catalog[row.slug].storage[row.storage_label] = Number(row.price);
+                return catalog;
+            }, {});
+        }
+
+        function buildDeliveryFeesFromRows(rows) {
+            return rows.reduce((fees, row) => {
+                fees[row.label] = Number(row.fee);
+                return fees;
+            }, {});
+        }
+
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat("en-ZM", {
+                style: "currency",
+                currency: "ZMW",
+                maximumFractionDigits: 0
+            }).format(amount);
+        }
+
+        function showToast(message) {
+            toast.textContent = message;
+            toast.classList.add("show");
+            window.clearTimeout(showToast.timeout);
+            showToast.timeout = window.setTimeout(() => {
+                toast.classList.remove("show");
+            }, 3600);
+        }
+
+        function populateModelOptions() {
+            modelSelect.innerHTML = "";
+            notifyModelSelect.innerHTML = "";
+            const entries = Object.entries(productCatalog);
+            entries.forEach(([key, product]) => {
+                const option = document.createElement("option");
+                option.value = key;
+                option.textContent = product.label;
+                modelSelect.appendChild(option);
+
+                const notifyOption = document.createElement("option");
+                notifyOption.value = key;
+                notifyOption.textContent = product.label;
+                notifyModelSelect.appendChild(notifyOption);
+            });
+
+            const preferredDefault = productCatalog.iphone16pro ? "iphone16pro" : entries[0]?.[0];
+            if (preferredDefault) {
+                modelSelect.value = preferredDefault;
+                notifyModelSelect.value = preferredDefault;
+            }
+        }
+
+        function populateLocationOptions() {
+            zambiaLocations.forEach((location) => {
+                const option = document.createElement("option");
+                option.value = location;
+                option.textContent = location;
+                cityInput.appendChild(option);
+            });
+        }
+
+        function populateStorageOptions() {
+            const product = productCatalog[modelSelect.value];
+            if (!product) {
+                storageSelect.innerHTML = "";
+                return;
+            }
+            const currentValue = storageSelect.value;
+            storageSelect.innerHTML = "";
+
+            Object.keys(product.storage).forEach((storage) => {
+                const option = document.createElement("option");
+                option.value = storage;
+                option.textContent = storage;
+                storageSelect.appendChild(option);
+            });
+
+            if (product.storage[currentValue]) {
+                storageSelect.value = currentValue;
+            }
+        }
+
+        function getAllowedDeliveryOptions() {
+            const city = cityInput.value.trim().toLowerCase();
+
+            if (city === "lusaka") {
+                return ["Store pickup", "Local delivery"];
+            }
+
+            return [
+                "Bus courier",
+                "Platinum Courier",
+                "ZamPost (Post Office)"
+            ];
+        }
+
+        function syncDeliveryOptions() {
+            const allowedOptions = getAllowedDeliveryOptions();
+            const currentValue = deliverySelect.value;
+            deliverySelect.innerHTML = "";
+
+            allowedOptions.forEach((optionLabel) => {
+                const option = document.createElement("option");
+                option.value = optionLabel;
+                option.textContent = optionLabel;
+                deliverySelect.appendChild(option);
+            });
+
+            if (allowedOptions.includes(currentValue)) {
+                deliverySelect.value = currentValue;
+            }
+        }
+
+        function calculateOrder() {
+            const product = productCatalog[modelSelect.value];
+            if (!product) {
+                return {
+                    product: {
+                        label: "Unavailable",
+                        deliveryWindow: "Check dashboard configuration"
+                    },
+                    basePrice: 0,
+                    deliveryFee: 0,
+                    total: 0
+                };
+            }
+            const basePrice = product.storage[storageSelect.value] || 0;
+            const deliveryFee = deliveryFees[deliverySelect.value] || 0;
+            const total = basePrice + deliveryFee;
+
+            return {
+                product,
+                basePrice,
+                deliveryFee,
+                total
+            };
+        }
+
+        function updateSummary() {
+            const order = calculateOrder();
+            document.getElementById("summary-model").textContent = order.product.label;
+            document.getElementById("summary-storage").textContent = storageSelect.value;
+            document.getElementById("summary-delivery").textContent = deliverySelect.value;
+            document.getElementById("summary-payment").textContent = paymentSelect.value;
+            document.getElementById("summary-price").textContent = formatCurrency(order.total);
+            document.getElementById("summary-delivery-date").textContent = order.product.deliveryWindow;
+        }
+
+        function updateStartingPrice() {
+            const catalogValues = Object.values(productCatalog).flatMap((product) => Object.values(product.storage));
+            if (!catalogValues.length) {
+                heroPriceFrom.textContent = "Pricing available on request";
+                return;
+            }
+            const lowestPrice = Math.min(
+                ...catalogValues
+            );
+            heroPriceFrom.textContent = `From ${formatCurrency(lowestPrice)}`;
+        }
+
+        function updateCountdown() {
+            const closingDate = new Date("2026-05-20T18:00:00+02:00").getTime();
+            const now = Date.now();
+            const distance = closingDate - now;
+
+            if (distance <= 0) {
+                countdown.textContent = "Priority window is live";
+                heroCountdown.textContent = "Orders open now";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const label = `${days}d ${hours}h ${minutes}m`;
+
+            countdown.textContent = `Window closes in ${label}`;
+            heroCountdown.textContent = label;
+        }
+
+        function saveLatestOrder(orderData) {
+            localStorage.setItem("electracomm-latest-order", JSON.stringify(orderData));
+            renderLatestOrder();
+        }
+
+        async function loadCatalogFromSupabase() {
+            if (!supabaseClient) {
+                setBackendStatus("Supabase not configured yet. The site is using the built-in demo catalog until you add your project keys.");
+                return;
+            }
+
+            const [{ data: productRows, error: productError }, { data: deliveryRows, error: deliveryError }] = await Promise.all([
+                supabaseClient
+                    .from("products")
+                    .select("slug, label, image_tag, delivery_window, storage_label, price, active")
+                    .eq("active", true)
+                    .order("label", { ascending: true })
+                    .order("price", { ascending: true }),
+                supabaseClient
+                    .from("delivery_options")
+                    .select("label, fee, active, sort_order")
+                    .eq("active", true)
+                    .order("sort_order", { ascending: true })
+            ]);
+
+            if (productError || deliveryError) {
+                console.error(productError || deliveryError);
+                setBackendStatus("Supabase is reachable, but the tables are missing or empty. Run the SQL setup file, then refresh this page.");
+                return;
+            }
+
+            if (productRows?.length) {
+                productCatalog = buildCatalogFromRows(productRows);
+            }
+
+            if (deliveryRows?.length) {
+                deliveryFees = buildDeliveryFeesFromRows(deliveryRows);
+            }
+
+            setBackendStatus("Live mode is active. Catalog prices, delivery options, orders, and waitlist entries now flow through Supabase.");
+        }
+
+        async function saveOrderToSupabase(orderData, order) {
+            if (!supabaseClient) {
+                return false;
+            }
+
+            const { error } = await supabaseClient.from("orders").insert({
+                created_at: orderData.createdAt,
+                customer_name: orderData.name,
+                phone: orderData.phone,
+                email: orderData.email,
+                city: orderData.city,
+                model_slug: modelSelect.value,
+                model_label: orderData.model,
+                storage_label: orderData.storage,
+                color: orderData.color,
+                payment_method: orderData.paymentMethod,
+                delivery_option: orderData.deliveryOption,
+                base_price: order.basePrice,
+                delivery_fee: order.deliveryFee,
+                total_price: order.total,
+                notes: orderData.notes
+            });
+
+            if (error) {
+                console.error(error);
+                setBackendStatus("Supabase is connected, but saving orders failed. Check your table policies and SQL setup.");
+                return false;
+            }
+
+            return true;
+        }
+
+        async function saveWaitlistToSupabase(waitlistEntry) {
+            if (!supabaseClient) {
+                return false;
+            }
+
+            const { error } = await supabaseClient.from("waitlist_entries").insert({
+                created_at: new Date().toISOString(),
+                full_name: waitlistEntry.name,
+                email: waitlistEntry.email,
+                model_label: waitlistEntry.model,
+                preferred_channel: waitlistEntry.channel
+            });
+
+            if (error) {
+                console.error(error);
+                setBackendStatus("Supabase is connected, but saving waitlist entries failed. Check your table policies and SQL setup.");
+                return false;
+            }
+
+            return true;
+        }
+
+        function renderLatestOrder() {
+            const raw = localStorage.getItem("electracomm-latest-order");
+            if (!raw) {
+                latestOrderText.textContent = "No order saved on this device yet.";
+                return;
+            }
+
+            try {
+                const order = JSON.parse(raw);
+                latestOrderText.textContent = `${order.name} selected ${order.model} (${order.storage}) with ${order.paymentMethod}. Total: ${order.total}.`;
+            } catch (error) {
+                latestOrderText.textContent = "Saved order data could not be loaded.";
+            }
+        }
+
+        function validateForm(form) {
+            if (form.checkValidity()) {
+                return true;
+            }
+
+            form.reportValidity();
+            return false;
+        }
+
+        preorderForm.addEventListener("submit", async (event) => {
+            event.preventDefault();
+
+            if (!validateForm(preorderForm)) {
+                return;
+            }
+
+            const order = calculateOrder();
+            const orderData = {
+                createdAt: new Date().toISOString(),
+                name: document.getElementById("customer-name").value.trim(),
+                phone: document.getElementById("phone-number").value.trim(),
+                email: document.getElementById("email-address").value.trim(),
+                city: document.getElementById("city").value.trim(),
+                model: order.product.label,
+                storage: storageSelect.value,
+                color: document.getElementById("color").value,
+                paymentMethod: paymentSelect.value,
+                deliveryOption: deliverySelect.value,
+                total: formatCurrency(order.total),
+                notes: document.getElementById("notes").value.trim()
+            };
+
+            saveLatestOrder(orderData);
+            const orderSaved = await saveOrderToSupabase(orderData, order);
+            preorderForm.reset();
+            modelSelect.value = productCatalog.iphone16pro ? "iphone16pro" : Object.keys(productCatalog)[0];
+            populateStorageOptions();
+            syncDeliveryOptions();
+            if (cityInput.value === "Lusaka") {
+                deliverySelect.value = "Store pickup";
+            }
+            paymentSelect.value = "Airtel Money";
+            updateSummary();
+            showToast(orderSaved
+                ? "Preorder request saved to Supabase."
+                : "Preorder request saved on this device. Add your Supabase keys to start collecting live submissions.");
+        });
+
+        notifyForm.addEventListener("submit", async (event) => {
+            event.preventDefault();
+
+            if (!validateForm(notifyForm)) {
+                return;
+            }
+
+            const waitlistEntry = {
+                name: document.getElementById("notify-name").value.trim(),
+                email: document.getElementById("notify-email").value.trim(),
+                model: notifyModelSelect.options[notifyModelSelect.selectedIndex].textContent,
+                channel: document.getElementById("notify-channel").value
+            };
+
+            localStorage.setItem("electracomm-waitlist", JSON.stringify(waitlistEntry));
+            const waitlistSaved = await saveWaitlistToSupabase(waitlistEntry);
+            notifyForm.reset();
+            notifyModelSelect.value = productCatalog.iphone16pro ? "iphone16pro" : Object.keys(productCatalog)[0];
+            showToast(waitlistSaved
+                ? `Waitlist saved to Supabase for ${waitlistEntry.model}.`
+                : `Waitlist saved on this device for ${waitlistEntry.model}.`);
+        });
+
+        [modelSelect, storageSelect, deliverySelect, paymentSelect].forEach((element) => {
+            element.addEventListener("change", () => {
+                if (element === modelSelect) {
+                    populateStorageOptions();
+                }
+                updateSummary();
+            });
+        });
+
+        cityInput.addEventListener("input", () => {
+            syncDeliveryOptions();
+            updateSummary();
+        });
+
+        async function initializeStorefront() {
+            const config = getSupabaseConfig();
+            if (config && window.supabase?.createClient) {
+                supabaseClient = window.supabase.createClient(config.url, config.anonKey);
+                await loadCatalogFromSupabase();
+            } else {
+                setBackendStatus("Supabase keys not added yet. Create supabase-config.js to switch this site from demo mode to live mode.");
+            }
+
+            populateModelOptions();
+            populateLocationOptions();
+            populateStorageOptions();
+            syncDeliveryOptions();
+            updateSummary();
+            updateStartingPrice();
+            renderLatestOrder();
+            updateCountdown();
+            window.setInterval(updateCountdown, 60000);
+        }
+
+        initializeStorefront();
+    </script>
+</body>
+</html>
